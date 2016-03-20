@@ -21,33 +21,32 @@ List *swap(List *head, List *node_1, List *node_2)
     pre_node_2=NULL;
     tmp_node=NULL;
 
-    
-	 while (head && head->next) {
+
+    while (head && head->next) {
         if (head->next == node_1) {
             pre_node_1 = head;
             check_node_exist++ ;
-        		if(_head == node_2){
-        			pre_node_1->next = node_2;
-        			tmp_node = node_2->next;
-       			node_2->next = node_1->next;
-        			node_1->next = tmp_node;
-        			return node_1;
-				}
-		  }
-		  else if (head->next == node_2) {
+            if(_head == node_2) {
+                pre_node_1->next = node_2;
+                tmp_node = node_2->next;
+                node_2->next = node_1->next;
+                node_1->next = tmp_node;
+                return node_1;
+            }
+        } else if (head->next == node_2) {
             pre_node_2 = head;
             check_node_exist++ ;
-        		if(_head ==node_1){
-        			pre_node_2->next = node_1;
-        			tmp_node = node_1->next;
-        			node_1->next = node_2->next;
-        			node_2->next = tmp_node;
-        			return node_2;
-				}
-		  }
-		  if(check_node_exist ==2){
-		  		break;
-		  }
+            if(_head ==node_1) {
+                pre_node_2->next = node_1;
+                tmp_node = node_1->next;
+                node_1->next = node_2->next;
+                node_2->next = tmp_node;
+                return node_2;
+            }
+        }
+        if(check_node_exist ==2) {
+            break;
+        }
         head = head->next;
     }
 
